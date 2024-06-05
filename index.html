@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        const a = 'salut'
+        const b = 'tout le monde'
+        const notes = [
+            17,
+            20,
+            10,
+            9,
+            11,
+            'Hello world',
+            [1, 2, 3]
+        ]
+
+        const person = {
+            firstname: 'John',
+            lastname: 'Doe',
+            age: '29',
+            notes: [17, 18, 19, 20],
+            job: {
+                name: 'informaticien',
+                hours: 35
+            }
+        }
+
+        const age = 18
+        const pays = 'US'
+        const peutConduireAuTogo = age >= 18 && pays === 'TG'
+        const peutConduireAuUS = age >= 16 && pays === 'US'
+
+        if (peutConduireAuTogo) {
+            console.log('Vous avez l\' âge de conduire au Togo ')
+        } else if (peutConduireAuUS) {
+            console.log('Vous avez l\' âge de conduire aux US ')
+        } else {
+            console.log('Vous n\'avez pas l\'âge de conduire')
+        }
+
+        switch (pays) {
+            case 'TG':
+                console.log('je suis au Togo')
+                break;
+
+            case 'US':
+                console.log('Je suis aux Etats unies')
+                break;
+
+            default:
+                console.log('je suis dans un pays inconnu')
+                break;
+        }
+
+
+        const year = 2024
+        const birthday = prompt('Quel est votre année de naissance ?')
+        const age2 = year - birthday
+        if ( age2 <= 13) {
+            console.log('Vous pouvez regardez lilo et switch')
+        } else if ( age2 > 13 && age2 < 18) {
+            console.log('Vous pouvez regardez Matrix')
+        } else { 
+            console.log('Vous pouvez regardez Evil dead')
+        }
+
+        const x = prompt('Entrez le premier nombre !!!')
+        const y = prompt('Entrez le second nombre !!!')
+        const result = x * y
+        let signe
+        if (isNaN(result)) {
+            console.log(`Opération impossible : ${x} x ${y}`)
+        } else {
+            if (result > 0) {
+                signe = 'Positif'
+            } else {
+                signe = 'Négatif'
+            }
+            console.log(`${x} x ${y} = ${result} est un nombre ${signe}`)
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

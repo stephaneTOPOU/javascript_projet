@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // let i = 0
+        // while (i < 10) {
+        //     console.log('Bonjour la famille ' + i)
+        //     i++
+        // }
+
+        for (let i = 0; i < 10; i++) {
+            console.log('cc les ami ' + i)
+
+        }
+
+        const note = [12, 20, 18, 15]
+        const person = {
+            firstname: 'John',
+            lastname: 'Doe'
+        }
+        for (let i = 0; i < note.length; i++) {
+            console.log(note[i])
+
+        }
+
+        for (let i in person) {
+            if (Object.hasOwnProperty.call(person, i)) {
+                console.log(person[i])
+
+            }
+        }
+
+        for (let i of note) {
+            console.log(i)
+        }
+
+
+        // let x = prompt('Veuillez entrer un nombre compris entre 0 et 10')
+        // if (x > 10 || x < 0) {
+        //     console.log('Votre nombre doit être compris entre 0 et 10')
+        // } else {
+        //     // avec la boucle while
+        //     while (x >= 0) {
+        //         console.log(x)
+        //         x--
+        //     }
+
+        //     // avec la boucle for
+        //     for (let i = x; i >= 0; i--) {
+        //         console.log(i)
+        //     }
+        // }
+
+
+        let guess = 8
+        let y
+        while (y !== guess) {
+            y = prompt('Entrez un nombre') * 1
+            if (y > guess) {
+                console.log('Vous avez dépassé le nombre')
+            } else if (y < guess) {
+                console.log('Vous êtes en dessous du nombre')
+            }
+        }
+        console.log('Bravo :)')
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

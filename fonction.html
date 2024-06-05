@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        function canDdrive(age, pays) {
+
+            const peutConduireAuTogo = age >= 18 && pays === 'TG'
+            const peutConduireAuUS = age >= 16 && pays === 'US'
+
+            if (peutConduireAuTogo || peutConduireAuUS) {
+                return true
+            }
+            return false
+        }
+
+        console.log(canDdrive(13, 'US'))
+
+
+        notes = [15, 18, 19]
+
+        function updateNote(n) {
+            n[0]++
+        }
+
+        updateNote(notes)
+        console.log(notes)
+
+        function greeting(nom) {
+            console.log(`Bonjour ${nom}`)
+        }
+
+        greeting('Stephane')
+
+        function maFonction() {
+            console.log(this)
+        }
+
+        maFonction()
+
+        const a = {
+            firstname: 'John',
+            lastname: 'Doe',
+            fulname: function () {
+                console.log(`${this.firstname} ${this.lastname}`)
+            }
+        }
+
+        a.fulname()
+
+        const isPair = function (a, cb) {
+            if (a % 2 === 0) {
+                cb(a)
+            }
+        }
+
+        isPair(4, function (n) {
+            console.log('Mon nombre est pair ' + n)
+        })
+
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * (max + 1));
+        }
+        const solution = getRandomInt(10)
+        console.log(solution)
+
+        function isRight(n) {
+            return solution === n
+        }
+
+        function guess() {
+            const nombre = prompt('Entrez un nombre') * 1
+            return isRight(nombre)
+        }
+
+        for (let i = 0; i < 3; i++) {
+            if (guess()) {
+                console.log('Bravo')
+                break
+            } else if (i === 2) {
+                console.log('Echec')
+            }
+
+        }
+
+        function isPremier(n) {
+            if (n < 2) {
+                return false
+            }
+            for (let i = n - 1; i > 1; i--) {
+                if (n % i === 0) {
+                    return false
+                }
+            }
+            return true
+        }
+
+        console.log('0',isPremier(0))
+        console.log('1',isPremier(1))
+        console.log('2',isPremier(2))
+        console.log('3',isPremier(3))
+        console.log('5',isPremier(5))
+        console.log('7',isPremier(7))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

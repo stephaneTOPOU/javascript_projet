@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <script>
+        const phrase = `Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres.`
+
+        const ignored = [',', '?', ':', '!', '«', '»', '…', '’']
+
+        let cleanPhrase = phrase.toLowerCase()
+
+        for (let character of ignored) {
+            cleanPhrase = cleanPhrase.replaceAll(character, '')
+        }
+        const frequencies = {}
+
+        const words = cleanPhrase.split(' ')
+
+        //console.log(words)
+
+        for (let word of words) {
+            if (word !== '') {
+                if (frequencies[word]) {
+                    frequencies[word]++
+                } else {
+                    frequencies[word] = 1
+                }
+            }
+        }
+
+        const frequenciesArray = []
+
+        for (let key in frequencies) {
+            frequenciesArray.push({
+                word: key,
+                count: frequencies[key]
+            })
+        }
+
+        frequenciesArray.sort((a, b) => b.count - a.count)
+
+        const formatWord = (frequenciesArray) => {
+            return `${frequenciesArray.word} avec un nombre ${frequenciesArray.count}`
+        }
+
+        console.log(`Les mots les plus fréquent sont 
+${formatWord(frequenciesArray[0])} 
+${formatWord(frequenciesArray[1])} 
+${formatWord(frequenciesArray[2])}
+
+`)
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
