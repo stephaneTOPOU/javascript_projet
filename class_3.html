@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        class Book {
+            titre
+            nombre
+            #page = 1
+
+            constructor(titre, nombre) {
+                this.titre = titre
+                this.nombre = nombre
+            }
+
+            get page() {
+                return `Le livre a pour titre : ${this.titre}, nombre de page : ${this.#page}`
+            }
+
+            nextPage() {
+                if (this.#page < this.nombre) {
+                    return this.#page ++
+                }
+            }
+
+            close() {
+                return this.#page = 1
+            }
+        }
+
+        class Library {
+
+            #books = []
+
+            addBook(book) {
+                this.#books.push(book)
+            }
+
+            // Premiere méthode pour ajouter un livre 
+            addBooks(books) {
+                for (let book of books) {
+                    this.addBook(book)
+                }
+            }
+
+            // Deuxieme méthode pour ajouter un livre
+            addBooks_2 (books) {
+                books.forEach((book) => this.addBook(book)) //ou encore books.forEach(this.addBook this)
+            }
+
+            // Premiere méthode pour filtrer 
+            findBooksByLetter(lettre) {
+                const found = []
+                for (let book of this.#books) {
+                    if (book.titre[0].toLowerCase() === lettre.toLowerCase()) {
+                        found.push(book)
+                    }
+                }
+                return found
+            }
+
+            // Deuxieme méthode pour filtrer 
+            findBooksByLetter2(lettre) {
+                return this.#books.filter((book) => { book.titre[0].toLowerCase() === lettre.toLowerCase() })
+            }
+        }
+
+        const b = new Book('Seigneur des anneaux', 200);
+        console.log(b.page)
+        b.nextPage()
+        console.log(b.page)
+        b.close()
+        console.log(b.page)
+
+        const l = new Library()
+        l.addBook(b)
+        l.addBooks([
+            new Book('Ready player one', 100),
+            new Book('Oui-oui', 10),
+            new Book('Sillage', 50),
+        ])
+        console.log(l.findBooksByLetter('r'))
+        console.log(l.findBooksByLetter2('S'))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
