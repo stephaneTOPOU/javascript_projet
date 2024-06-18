@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <script>
+
+        //Premiere methode
+        function Decompte (n) {
+            console.log(n)
+            const t = setInterval(() => {
+                n--
+                console.log(n)
+                if (n === 0) {
+                    clearInterval(t)
+                }
+            }, 1000)
+        }
+        
+        Decompte(5)
+
+
+        //Deuxieme methode
+        function Decompte_2 (m) {
+            console.log(m)
+            if (m === 0) {
+                return
+            }
+            setTimeout(() => {
+                Decompte_2 (m-1)
+            }, 1000)
+        }
+
+        Decompte_2(8) 
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
