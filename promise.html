@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        const p = new Promise((resolve, reject) => {
+            reject(4)
+        });
+        console.log(p)
+
+        p.then((n) => {
+            console.log('Nombre ', n)
+        }).catch((e) => {
+            console.log('Erreur ', e)
+        }).finally(() => {
+            console.log('Bonjour tout le monde !!')
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

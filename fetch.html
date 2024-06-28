@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <script>
+
+        async function fetchUsers(params) {
+            const r = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    "Accept": "Application/json",
+                    "Content-type": "Application/json"
+                },
+                body: JSON.stringify({ title: 'Mon premier titre' })
+            })
+
+            if (r.ok === true) {
+                return r.json()
+            }
+            throw new Error('Impossible de contacter le serveur')
+        }
+
+        fetchUsers().then(users => console.log(users))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

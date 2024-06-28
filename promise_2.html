@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <script>
+        function wait(duration) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(duration)
+                }, duration)
+            })
+        }
+
+
+        function waitAndFail(duration) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    reject(duration)
+                }, duration)
+            })
+        }
+
+        wait(2000).then(() => {
+            console.log('Attente 2s')
+            return wait(1000)
+        }).then(() => {
+            console.log('Attente 1s')
+            return waitAndFail(2000)
+        }).catch(() => null)
+
+
+        async function main() {
+            try {
+                await wait(2000)
+                console.log('Boujour ')
+                await wait(1000)
+                console.log('tout le monde')
+            } catch (e) {
+                console.log('Erreur')
+            }
+
+        }
+
+        main()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
