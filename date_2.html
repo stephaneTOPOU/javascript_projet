@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        const MONTHS = 1
+        const DAYS = 2
+        const HOURS = 3
+        const MINUTES = 4
+        const SECONDS = 5
+        const YEARS = 0
+
+        function addInterval(date, interval) {
+            const parts = [
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate(),
+                date.getHours(),
+                date.getMinutes(),
+                date.getSeconds(),
+                date.getMilliseconds()
+            ]
+            for (const [unit, value] of Object.entries(interval)) {
+                parts[unit] += value
+            }
+            return new Date(...parts)
+        }
+
+        const today = new Date();
+        const future = addInterval(today, {
+            [MONTHS]: 2,
+            [DAYS]: 1,
+            [MINUTES]: 3,
+        })
+        console.log(today, future)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
