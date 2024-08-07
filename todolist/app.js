@@ -1,4 +1,19 @@
+import { TodoList } from "../components/todolist.js";
 import { fetchJSON } from "./fonction/api.js";
+import { createElement } from "./fonction/dom.js";
 
-const todos = await fetchJSON('https://jsonplaceholder.typicode.com/todos?_limit=5');
-console.log(todos)
+try {
+    const todos = await fetchJSON('https://jsonplaceholder.typicode.com/todos?_limit=5');
+    //console.log(todos)
+    const list = new TodoList(todos)
+    list.appendTo(document.querySelector('#todolist'))
+} catch (error) {
+    const alertElement = createElement('div', {
+        class: 'alert alert-danger m-2',
+        role: 'alert'
+    })
+
+    alertElement.innerText = 'Impossible de charger les éléments'
+    document.body.prepend(alertElement)
+    console.error(e)
+}
