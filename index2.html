@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /**
+         * permet de savoir si une personne peut conduire
+         * @param {number} age
+         * @param {string} pays
+         * @returns {bollean}
+         */
+        function peutConduire(age, pays) {
+            if (pays === 'TG') {
+                return age >= 18
+            } else if (pays === 'US') {
+                return age >= 16
+            } else {
+                return false
+            }
+        }
+        const age = 18
+        const pays = 'US'
+        const peutConduireAuTogo = age >= 18 && pays === 'TG'
+        const peutConduireAuUS = age >= 16 && pays === 'US'
+
+        if (peutConduireAuTogo) {
+            console.log('Vous avez l\' âge de conduire au Togo ')
+        } else if (peutConduireAuUS) {
+            console.log('Vous avez l\' âge de conduire aux US ')
+        } else {
+            console.log('Vous n\'avez pas l\'âge de conduire')
+        }
+
+        const a = peutConduire(15, 'US');
+
+        /**
+         * @returns {{ id: number, title: string, body: string }}
+         */
+
+        function fetchPost() {
+
+        }
+        const post = fetchPost();
+        post.id
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

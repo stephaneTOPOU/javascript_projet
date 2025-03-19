@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        function addDate(date, days) {
+            const result = new Date(date)
+            result.setDate(result.getDate() + days)
+            return result
+        }
+
+        const today = new Date()
+        const tomorrow = addDate(today, 1)
+        console.log('Aujourd\'hui : ', today)
+        console.log('Demain : ', tomorrow)
+
+
+        
+
+        //premiere methode
+        
+        const MONTHS = 'months'
+        const DAYS = 'days'
+        const YEARS = 'years'
+        function addInterval(date, n, unit) {
+            const result = new Date(date)
+            switch (unit) {
+                case DAYS:
+                    result.setDate(result.getDate() + n)
+                    break
+                case MONTHS:
+                    result.setMonth(result.getMonth() + n)
+                    break
+                case YEARS:
+                    result.setFullYear(result.getFullYear() + n)
+                    break
+                default:
+                    throw new Error('Invalid unit')
+            }
+            return result
+        }
+
+        const today2 = new Date();
+        const future = addInterval(today2, 2, MONTHS);
+        console.log('Aujourd\'hui : ', today2)
+        console.log('Dans 2 mois : ', future)
+
+
+        //deuxieme methode
+        const MONTHS2 = 1
+        const DAYS2 = 2
+        const YEARS2 = 0
+        function addInterval2(date, n, unit) {
+            const parts = [
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate(),
+                date.getHours(),
+                date.getMinutes(),
+                date.getSeconds(),
+                date.getMilliseconds()
+            ]
+            parts[unit] += n
+            return new Date(...parts)
+
+        }
+
+        const today3 = new Date();
+        const future3 = addInterval2(today3, 2, MONTHS2);
+        console.log('Aujourd\'hui2 : ', today3)
+        console.log('Dans 2 moiss : ', future3)
+
+
+        //troisieme methode
+
+        
+        const YEARS3= 0
+        const MONTHS3 = 1
+        const DAYS3 = 2
+        const HOURS3 = 3
+        const MINUTES3 = 4
+        const SECONDS3 = 5
+        const MILLISECONDS3 = 6
+        
+        function addInterval3(date, interval) {
+            const parts = [
+            date.getFullYear(),
+                date.getMonth(),
+                date.getDate(),
+                date.getHours(),
+                date.getMinutes(),
+                date.getSeconds(),
+                date.getMilliseconds()
+            ]
+            for (const [unit, value] of Object.entries(interval)) {
+                parts[unit] += value
+            }  
+            return new Date(...parts)                                  
+        }
+
+        const today4 = new Date();
+        const future4 = addInterval3(today4, { 
+            [MONTHS3]: 2,
+            [DAYS3]: 1
+        });
+        console.log('Aujourd\'hui3 : ', today4)
+        console.log('Dans 2 mois3 : ', future4)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
