@@ -1,3 +1,4 @@
+//pour supprimer un seul spoiler
 document.querySelectorAll('.spoiler').forEach(spoiler => {
     spoiler.addEventListener('click', e => {
         e.currentTarget.classList.remove('spoiler') //ou spoiler.classList.remove('spoiler')

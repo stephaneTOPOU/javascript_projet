@@ -1,4 +1,4 @@
-import { cloneTemplate, createElement } from "../todolist/fonction/dom.js"
+import { cloneTemplate, createElement } from "../fonction/dom.js"
 
 /**
  * 

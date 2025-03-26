@@ -1,4 +1,4 @@
-import { TodoList } from "../components/todolist.js";
+import { TodoList } from "./components/todolist.js";
 import { fetchJSON } from "./fonction/api.js";
 import { createElement } from "./fonction/dom.js";
 
