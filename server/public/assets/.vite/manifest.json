@@ -1,0 +1,22 @@
+{
+  "resources/bg-presentation.jpg": {
+    "file": "bg-presentation-CkzQNRSI.jpg",
+    "src": "resources/bg-presentation.jpg"
+  },
+  "resources/main.css": {
+    "file": "main-B_ndVPRk.css",
+    "src": "resources/main.css"
+  },
+  "resources/main.js": {
+    "file": "main-DKEMguph.js",
+    "name": "main",
+    "src": "resources/main.js",
+    "isEntry": true,
+    "css": [
+      "main-B_ndVPRk.css"
+    ],
+    "assets": [
+      "bg-presentation-CkzQNRSI.jpg"
+    ]
+  }
+}
