@@ -133,10 +133,10 @@ class FetchForm {
 
             form.insertAdjacentElement(
                 'beforebegin',
-                alertElement(`Commentaire envoyé avec succès !`)
+                alertElement(`Commentaire envoyé avec succès !`, 'success')
             )
         } catch (e) {
-            const errorElement = alertElement('Impossible d\'envoyer le commentaire', 'success')
+            const errorElement = alertElement('Impossible d\'envoyer le commentaire', 'danger')
             form.insertAdjacentElement(
                 'beforebegin',
                 errorElement
