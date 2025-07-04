@@ -1,6 +1,6 @@
 import { TodoList } from "./components/todolist.js";
-import { fetchJSON } from "./fonction/api.js";
-import { createElement } from "./fonction/dom.js";
+import { fetchJSON } from "./functions/api.js";
+import { createElement } from "./functions/dom.js";
 
 try {
     //const todos = await fetchJSON('https://jsonplaceholder.typicode.com/todos?_limit=5');
