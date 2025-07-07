@@ -81,8 +81,6 @@ class InfinitePagination {
 
 }
 
-
-
 class FetchForm {
 
     /** @type {string} */
@@ -149,5 +147,7 @@ class FetchForm {
     }
 
 }
+
 document.querySelectorAll('.js-infinite-pagination').forEach(el => new InfinitePagination(el))
+
 document.querySelectorAll('.js-form-fetch').forEach(form => new FetchForm(form))
