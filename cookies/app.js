@@ -1,5 +1,4 @@
 /**
- * 
  * @param {string} name
  * @return {string | null} 
  */

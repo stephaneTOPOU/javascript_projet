@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tutoriel modal</title>
+</head>
+<body>
+    <a href="#modal2" class="js-modal">Ouvrir la boite modale</a>
+    <a href="https://www.google.com">google</a>
+    <aside id="modal2" class="modal" role="dialog" aria-labelledby="titlemodal">
+        <div class="modal-wrapper js-modal-stop">
+            <h1 id="titlemodal">Titre de la boite modale</h1>
+            <input type="text" placeholder="Saisissez quelque chose ici" aria-label="Saisie de texte" />
+            <p>Contenu de la boite modale.</p>
+            <textarea name="message" id="message" placeholder="Saisissez votre message ici" aria-label="Saisie de message" rows="5"></textarea>
+            <button type="button" class="js-close-modal">Fermer</button>
+        </div>
+    </aside>
+    <script src="app.js"></script>
+</body>
+</html>
