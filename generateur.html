@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+        function* animals() {
+            yield "Lion"
+            yield* insectes()
+            yield "Tiger"
+            yield "Bear"
+        }
+
+        function* insectes() {
+            yield "Ant"
+            yield "Bee"
+            yield "Butterfly"
+        }
+
+        const gen = animals()
+        //gen.next() // "Lion"
+        for (const animal of gen) {
+            console.log(animal)
+        }
+
+
+        function* idMaker() {
+            let id = 0
+            while (true) {
+                id += (yield id++) ?? 1
+            }
+        }
+
+        const genId = idMaker()
+        console.log(genId.next().value) // 0
+        console.log(genId.next().value) // 1
+        console.log(genId.next(10).value) // 11
+        console.log(genId.next().value) // 12
+        console.log(genId.next().value) // 13
+
+
+        async function* fetcUsers() {
+            let page = 0
+            while (true) {
+                yield await fetch(
+                    "https://jsonplaceholder.typicode.com/posts?_limit=10&_start=" + 10 * page
+                ).then((r) => r.json());
+                page++
+            }
+        }
+
+        const genFetch = fetcUsers()
+        console.log((await genFetch.next()).value);
+        console.log((await genFetch.next()).value);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

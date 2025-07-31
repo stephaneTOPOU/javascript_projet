@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Document</title>
+    <style>
+        .flex {
+            display: flex;
+            gap: .5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <div class="form">
+            <fieldset>
+                <label for="counter">Compteur :</label>
+                <input type="number" id="counter" value="0">
+            </fieldset>
+            <div class="flex">
+                <button id="increment">Incrémenter</button>
+                <button id="decrement">Décrémenter</button>
+                <button id="reset">Réinitialiser</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="proxy2.js"></script>
+</body>
+
+</html>

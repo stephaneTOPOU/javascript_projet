@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+
+        const persons = [
+            { name: "John Doe", age: 30, id: 1 },
+            { name: "Jane Doe", age: 25, id: 2 },
+            { name: "Charlie Doe", age: 35, id: 2 }
+        ]
+
+        class UniqueSet {
+            /**
+             * Creates a new UniqueSet instance.
+             * @param {Function} cb - A callback function to extract the unique key from each item.
+             * @param {Array} items - An array of items to initialize the set with.
+             */
+            #map = new Map()
+            constructor(cb, items) {
+                for (const item of items) {
+                    const key = cb(item)
+                    if (!this.#map.has(key)) {
+                        this.#map.set(key, item)
+                    }
+
+                }
+            }
+            delete(key) {
+                this.#map.delete(key)
+            }
+            values() {
+                return this.#map.values()
+            }
+        }
+        const p = new UniqueSet((p) => p.id, persons)
+        p.delete(2)
+        console.log(Array.from(p.values()))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
