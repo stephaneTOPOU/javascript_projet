@@ -51,9 +51,16 @@
             }
         }
 
-        const genFetch = fetcUsers()
-        console.log((await genFetch.next()).value);
-        console.log((await genFetch.next()).value);
+        async function* fetcUser() {
+            for await (const page of fetcUsers()) {
+                for (const user of page) {
+                    yield user
+                }
+            }
+        }
+
+        const userList = fetcUser()
+        console.log((await userList.next()).value)
         
     </script>
 </head>
